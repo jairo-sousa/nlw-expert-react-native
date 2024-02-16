@@ -1,23 +1,11 @@
-import { StyleSheet, View, Text } from "react-native";
+import { View, Text } from "react-native";
+
+import tw from "twrnc";
 
 export default function Home() {
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Hello World!</Text>
+        <View style={tw`flex-1 items-center justify-center bg-slate-900`}>
+            <Text style={tw`weight-bold text-white`}>Hello World!</Text>
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#0F172A",
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "white",
-    },
-});
