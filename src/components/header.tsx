@@ -3,7 +3,11 @@ import { styles } from "@@/app/_layout";
 
 import tw from "twrnc";
 
-export default function Header() {
+type HeaderProps = {
+    title: string;
+};
+
+export default function Header({ title }: HeaderProps) {
     return (
         <View
             style={tw`flex-row items-center border-b border-slate-700 pb-5 mx-5`}>
@@ -13,7 +17,7 @@ export default function Header() {
                     style={tw`h-6 w-32 `}
                 />
                 <Text style={[tw`text-white text-xl mt-2`, styles.heading]}>
-                    Cardápio
+                    {title}
                 </Text>
             </View>
         </View>
