@@ -3,10 +3,11 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                heading: "Inter_600SemiBold",
-                subtitle: "Inter_500Medium",
-                body: "Inter_400Regular",
-                bold: "Inter_700Bold",
+                // Didn't work
+                // heading: "Inter_600SemiBold",
+                // subtitle: "Inter_500Medium",
+                // body: "Inter_400Regular",
+                // bold: "Inter_700Bold",
             },
         },
     },

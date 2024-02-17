@@ -1,4 +1,4 @@
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView, View, StyleSheet } from "react-native";
 import { Slot } from "expo-router";
 
 import {
@@ -12,6 +12,21 @@ import {
 import { Loading } from "@/components/loading";
 
 import tw from "twrnc";
+
+export const styles = StyleSheet.create({
+    heading: {
+        fontFamily: "Inter_600SemiBold",
+    },
+    subtitle: {
+        fontFamily: "Inter_500Medium",
+    },
+    body: {
+        fontFamily: "Inter_400Regular",
+    },
+    bold: {
+        fontFamily: "Inter_700Bold",
+    },
+});
 
 export default function Layout() {
     const [fontsLoaded] = useFonts({
