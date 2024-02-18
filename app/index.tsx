@@ -10,7 +10,7 @@ export default function Home() {
             <Header title="Faça seu pedido" cartQuantityItems={1} />
 
             <View style={tw`flex-row gap-4`}>
-                <CategoryButton title="Lanhce do dia" />
+                <CategoryButton title="Lanhce do dia" isSelectet />
                 <CategoryButton title="Lanhce do dia" />
                 <CategoryButton title="Lanhce do dia" />
             </View>
