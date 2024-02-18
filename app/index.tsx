@@ -6,7 +6,7 @@ import Header from "@/components/header";
 export default function Home() {
     return (
         <View style={tw`flex-1 pt-8`}>
-            <Header title="Faça seu pedido" />
+            <Header title="Faça seu pedido" cartQuantityItems={1} />
         </View>
     );
 }
