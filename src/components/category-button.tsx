@@ -9,11 +9,7 @@ type CategoryProps = PressableProps & {
     isSelectet?: boolean;
 };
 
-export default function CategoryButton({
-    title,
-    isSelectet,
-    ...rest
-}: CategoryProps) {
+export function CategoryButton({ title, isSelectet, ...rest }: CategoryProps) {
     return (
         <Pressable
             style={tw`${clsx(

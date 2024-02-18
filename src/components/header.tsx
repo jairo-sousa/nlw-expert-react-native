@@ -9,7 +9,7 @@ type HeaderProps = {
     cartQuantityItems?: number;
 };
 
-export default function Header({ title, cartQuantityItems = 0 }: HeaderProps) {
+export function Header({ title, cartQuantityItems = 0 }: HeaderProps) {
     return (
         <View
             style={tw`flex-row items-center border-b border-slate-700 pb-5 mx-5`}>

@@ -1,12 +1,13 @@
 import { styles } from "./_layout";
 import tw from "twrnc";
 
-import Header from "@/components/header";
-import CategoryButton from "@/components/category-button";
-import Product from "@/components/product";
+import { Header } from "@/components/header";
+import { CategoryButton } from "@/components/category-button";
+import { Product } from "@/components/product";
 
 import { View, FlatList, SectionList, Text } from "react-native";
 import { useRef, useState } from "react";
+import { Link } from "expo-router";
 
 import { CATEGORIES, MENU } from "@/utils/data/products";
 
@@ -55,7 +56,14 @@ export default function Home() {
                 sections={MENU}
                 keyExtractor={(item) => item.id}
                 stickySectionHeadersEnabled={false}
-                renderItem={({ item }) => <Product data={item} />}
+                renderItem={({ item }) => (
+                    <Link
+                        href={`/product/${item.id}`}
+                        asChild
+                        style={tw`w-full flex-row items-center pb-4 text-white`}>
+                        <Product data={item} />
+                    </Link>
+                )}
                 renderSectionHeader={({ section: { title } }) => (
                     <Text
                         style={[

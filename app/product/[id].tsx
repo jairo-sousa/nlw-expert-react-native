@@ -6,6 +6,10 @@ import { useLocalSearchParams } from "expo-router";
 
 export default function Product() {
     const { id } = useLocalSearchParams();
-    alert(id);
-    return <View style={tw`flex-1`}></View>;
+
+    return (
+        <View style={tw`flex-1 items-center justify-center`}>
+            <Text style={tw`text-white text-4xl`}>Product id: {id}</Text>
+        </View>
+    );
 }
