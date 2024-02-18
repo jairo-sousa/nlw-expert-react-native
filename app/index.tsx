@@ -1,6 +1,8 @@
-import { View, Text, StyleSheet } from "react-native";
-import { styles } from "./_layout";
+import { View, FlatList } from "react-native";
+import { CATEGORIES } from "@/utils/data/products";
+
 import tw from "twrnc";
+
 import Header from "@/components/header";
 import CategoryButton from "@/components/category-button";
 
@@ -9,11 +11,15 @@ export default function Home() {
         <View style={tw`flex-1 pt-8`}>
             <Header title="Faça seu pedido" cartQuantityItems={1} />
 
-            <View style={tw`flex-row gap-4`}>
-                <CategoryButton title="Lanhce do dia" isSelectet />
-                <CategoryButton title="Lanhce do dia" />
-                <CategoryButton title="Lanhce do dia" />
-            </View>
+            <FlatList
+                data={CATEGORIES}
+                keyExtractor={(item) => item}
+                renderItem={({ item }) => <CategoryButton title={item} />}
+                horizontal
+                style={tw`max-h-10 mt-5`}
+                contentContainerStyle={{ gap: 12, paddingHorizontal: 12 }}
+                showsHorizontalScrollIndicator={false}
+            />
         </View>
     );
 }
