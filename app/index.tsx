@@ -1,11 +1,12 @@
-import { View, FlatList } from "react-native";
-import { CATEGORIES } from "@/utils/data/products";
+import { View, FlatList, SectionList, Text } from "react-native";
+import { CATEGORIES, MENU } from "@/utils/data/products";
 
 import tw from "twrnc";
 
 import Header from "@/components/header";
 import CategoryButton from "@/components/category-button";
 import { useState } from "react";
+import { styles } from "./_layout";
 
 export default function Home() {
     const [category, setCategory] = useState(CATEGORIES[0]);
@@ -36,6 +37,24 @@ export default function Home() {
                 style={tw`max-h-10 mt-5`}
                 contentContainerStyle={{ gap: 12, paddingHorizontal: 12 }}
                 showsHorizontalScrollIndicator={false}
+            />
+
+            <SectionList
+                sections={MENU}
+                keyExtractor={(item) => item.id}
+                stickySectionHeadersEnabled={false}
+                renderItem={({ item }) => (
+                    <Text style={tw`text-white`}>{item.title}</Text>
+                )}
+                renderSectionHeader={({ section: { title } }) => (
+                    <Text
+                        style={[
+                            tw`text-xl text-white mt-8 mb-3`,
+                            styles.heading,
+                        ]}>
+                        {title}
+                    </Text>
+                )}
             />
         </View>
     );
