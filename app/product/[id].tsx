@@ -3,8 +3,12 @@ import { View, Text, Image } from "react-native";
 import tw from "twrnc";
 
 import { useLocalSearchParams } from "expo-router";
+import { Feather } from "@expo/vector-icons";
+
 import { PRODUCTS } from "@/utils/data/products";
 import { formatCurrency } from "@/utils/functions/format-currency";
+
+import { Button } from "@/components/button";
 
 export default function Product() {
     const { id } = useLocalSearchParams();
@@ -42,6 +46,15 @@ export default function Product() {
                         {"\u2022"} {ingredient}
                     </Text>
                 ))}
+            </View>
+
+            <View style={tw`p-5 pb-8 gap-5`}>
+                <Button>
+                    <Button.Icon>
+                        <Feather name="plus-circle" size={20} />
+                    </Button.Icon>
+                    <Button.Text>Adicionar ao Pedido</Button.Text>
+                </Button>
             </View>
         </View>
     );
