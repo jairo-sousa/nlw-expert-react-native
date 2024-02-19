@@ -20,8 +20,16 @@ export default function Product() {
             />
 
             <View style={tw`p-5 mt-8 flex-1`}>
-                <Text style={[tw`text-lime-400 text-2xl ml-2`, styles.heading]}>
+                <Text style={[tw`text-lime-400 text-2xl my-2`, styles.heading]}>
                     {formatCurrency(product.price)}
+                </Text>
+
+                <Text
+                    style={[
+                        tw`text-slate-400 text-base leading-6 mb-6`,
+                        styles.body,
+                    ]}>
+                    {product.description}
                 </Text>
             </View>
         </View>
