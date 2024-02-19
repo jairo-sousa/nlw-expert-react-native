@@ -4,6 +4,7 @@ import tw from "twrnc";
 
 import { useLocalSearchParams } from "expo-router";
 import { PRODUCTS } from "@/utils/data/products";
+import { formatCurrency } from "@/utils/functions/format-currency";
 
 export default function Product() {
     const { id } = useLocalSearchParams();
@@ -20,7 +21,7 @@ export default function Product() {
 
             <View style={tw`p-5 mt-8 flex-1`}>
                 <Text style={[tw`text-lime-400 text-2xl ml-2`, styles.heading]}>
-                    {product.price}
+                    {formatCurrency(product.price)}
                 </Text>
             </View>
         </View>
