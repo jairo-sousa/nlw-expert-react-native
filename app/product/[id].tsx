@@ -31,6 +31,17 @@ export default function Product() {
                     ]}>
                     {product.description}
                 </Text>
+
+                {product.ingredients.map((ingredient) => (
+                    <Text
+                        key={ingredient}
+                        style={[
+                            tw`text-slate-400 text-base leading-6`,
+                            styles.body,
+                        ]}>
+                        {"\u2022"} {ingredient}
+                    </Text>
+                ))}
             </View>
         </View>
     );
