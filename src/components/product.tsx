@@ -26,7 +26,7 @@ export const Product = forwardRef<TouchableOpacity, ProductProps>(
         return (
             <TouchableOpacity
                 ref={ref}
-                // style={tw`w-full flex-row items-center pb-4 text-white`}
+                style={tw`w-full flex-row items-center pb-4 text-white`}
                 {...res}>
                 <Image
                     source={data.thumbnail}
