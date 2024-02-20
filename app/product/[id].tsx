@@ -39,6 +39,10 @@ export default function Product() {
             />
 
             <View style={tw`p-5 mt-8 flex-1`}>
+                <Text style={[tw`text-white text-xl`, styles.heading]}>
+                    {product.title}
+                </Text>
+
                 <Text style={[tw`text-lime-400 text-2xl my-2`, styles.heading]}>
                     {formatCurrency(product.price)}
                 </Text>
