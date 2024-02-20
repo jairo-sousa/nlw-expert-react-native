@@ -3,6 +3,7 @@ import { styles } from "@@/app/_layout";
 import { Feather } from "@expo/vector-icons";
 
 import tw from "twrnc";
+import { Link } from "expo-router";
 
 type HeaderProps = {
     title: string;
@@ -24,16 +25,28 @@ export function Header({ title, cartQuantityItems = 0 }: HeaderProps) {
             </View>
 
             {cartQuantityItems > 0 && (
-                <TouchableOpacity style={[tw`relative `]} activeOpacity={0.7}>
-                    <View
-                        style={tw`bg-lime-300 w-4 h-4 rounded-full items-center justify-center top-2 z-10 -right-3.5`}>
-                        <Text style={[tw`text-slate-900 text-xs`, styles.bold]}>
-                            {cartQuantityItems}
-                        </Text>
-                    </View>
+                <Link href="/cart" asChild>
+                    <TouchableOpacity
+                        style={[tw`relative `]}
+                        activeOpacity={0.7}>
+                        <View
+                            style={tw`bg-lime-300 w-4 h-4 rounded-full items-center justify-center top-2 z-10 -right-3.5`}>
+                            <Text
+                                style={[
+                                    tw`text-slate-900 text-xs`,
+                                    styles.bold,
+                                ]}>
+                                {cartQuantityItems}
+                            </Text>
+                        </View>
 
-                    <Feather name="shopping-bag" color={"white"} size={24} />
-                </TouchableOpacity>
+                        <Feather
+                            name="shopping-bag"
+                            color={"white"}
+                            size={24}
+                        />
+                    </TouchableOpacity>
+                </Link>
             )}
         </View>
     );
