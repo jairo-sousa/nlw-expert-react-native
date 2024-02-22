@@ -12,6 +12,7 @@ import { formatCurrency } from "@/utils/functions/format-currency";
 import { Input } from "@/components/imput";
 import { Button } from "@/components/button";
 import { Feather } from "@expo/vector-icons";
+import { LinkButton } from "@/components/link-button";
 
 export default function Cart() {
     const cartStore = useCartStore();
@@ -76,6 +77,8 @@ export default function Cart() {
                         {<Feather name="arrow-right-circle" size={20} />}
                     </Button.Icon>
                 </Button>
+
+                <LinkButton title="Voltar ao Cardápio" href="/"></LinkButton>
             </View>
         </View>
     );
