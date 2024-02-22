@@ -10,6 +10,8 @@ import { Product } from "@/components/product";
 import { useCartStore } from "@/stores/cart-store";
 import { formatCurrency } from "@/utils/functions/format-currency";
 import { Input } from "@/components/imput";
+import { Button } from "@/components/button";
+import { Feather } from "@expo/vector-icons";
 
 export default function Cart() {
     const cartStore = useCartStore();
@@ -66,6 +68,15 @@ export default function Cart() {
                     </View>
                 </ScrollView>
             </KeyboardAwareScrollView>
+
+            <View style={tw`p-5 gap-5`}>
+                <Button>
+                    <Button.Text>Enviar pedido</Button.Text>
+                    <Button.Icon>
+                        {<Feather name="arrow-right-circle" size={20} />}
+                    </Button.Icon>
+                </Button>
+            </View>
         </View>
     );
 }
