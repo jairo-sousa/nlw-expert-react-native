@@ -6,9 +6,17 @@ import { Header } from "@/components/header";
 import { Product } from "@/components/product";
 
 import { useCartStore } from "@/stores/cart-store";
+import { formatCurrency } from "@/utils/functions/format-currency";
 
 export default function Cart() {
     const cartStore = useCartStore();
+
+    const total = formatCurrency(
+        cartStore.products.reduce(
+            (total, product) => total + product.price * product.quantity,
+            0
+        )
+    );
 
     return (
         <View style={tw` flex-1 pt-8`}>
@@ -26,6 +34,15 @@ export default function Cart() {
                     Seu carrinho está vazio
                 </Text>
             )}
+
+            <View style={tw`flex-row gap-2 items-center mt-5 mb-4`}>
+                <Text style={[styles.subtitle, tw`text-white text-xl`]}>
+                    Total:
+                </Text>
+                <Text style={[styles.heading, tw`text-lime-400 text-2xl`]}>
+                    {total}
+                </Text>
+            </View>
         </View>
     );
 }
