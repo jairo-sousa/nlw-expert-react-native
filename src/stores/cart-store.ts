@@ -14,6 +14,7 @@ type StateProps = {
     products: ProductsCartProps[];
     add: (product: ProductProps) => void;
     remove: (productId: string) => void;
+    clear: () => void;
 };
 
 export const useCartStore = create(
@@ -28,6 +29,7 @@ export const useCartStore = create(
                 set((state) => ({
                     products: cartInMemory.remove(state.products, productid),
                 })),
+            clear: () => set(() => ({ products: [] })),
         }),
         {
             name: "nlw-expert:cart  ",
