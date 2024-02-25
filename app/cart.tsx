@@ -1,6 +1,6 @@
 import tw from "twrnc";
 import { styles } from "./_layout";
-import { Alert, ScrollView, Text, View } from "react-native";
+import { Alert, Linking, ScrollView, Text, View } from "react-native";
 import { useNavigation } from "expo-router";
 
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -15,6 +15,8 @@ import { Button } from "@/components/button";
 import { Feather } from "@expo/vector-icons";
 import { LinkButton } from "@/components/link-button";
 import { useState } from "react";
+
+const PHONE_NUMBER = "delivery_phone_here";
 
 export default function Cart() {
     const cartStore = useCartStore();
@@ -57,6 +59,10 @@ NOVO PEDIDO
 ${products}
 \n Valor total: ${total}
 `;
+
+        Linking.openURL(
+            `http://api.whatsapp.com/send?phone=${PHONE_NUMBER}&text=${message}`
+        );
 
         cartStore.clear();
         navigation.goBack();
