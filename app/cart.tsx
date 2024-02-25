@@ -1,13 +1,13 @@
 import tw from "twrnc";
 import { styles } from "./_layout";
-import { ScrollView, Text, View } from "react-native";
+import { Alert, ScrollView, Text, View } from "react-native";
 
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import { Header } from "@/components/header";
 import { Product } from "@/components/product";
 
-import { useCartStore } from "@/stores/cart-store";
+import { ProductsCartProps, useCartStore } from "@/stores/cart-store";
 import { formatCurrency } from "@/utils/functions/format-currency";
 import { Input } from "@/components/imput";
 import { Button } from "@/components/button";
@@ -24,6 +24,18 @@ export default function Cart() {
         )
     );
 
+    function handleProductRemove(product: ProductsCartProps) {
+        Alert.alert("Remover", `Deseja remover ${product.title} do carrinho?`, [
+            {
+                text: "Cancelar",
+            },
+            {
+                text: "Remover",
+                onPress: () => cartStore.remove(product.id),
+            },
+        ]);
+    }
+
     return (
         <View style={tw` flex-1 pt-8`}>
             <Header title="Seu carrinho" />
@@ -34,7 +46,13 @@ export default function Cart() {
                         {cartStore.products.length > 0 ? (
                             <View style={tw`border-b border-slate-700`}>
                                 {cartStore.products.map((product) => (
-                                    <Product key={product.id} data={product} />
+                                    <Product
+                                        key={product.id}
+                                        data={product}
+                                        onPress={() =>
+                                            handleProductRemove(product)
+                                        }
+                                    />
                                 ))}
                             </View>
                         ) : (
